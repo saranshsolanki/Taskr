@@ -44,7 +44,7 @@ myapp.controller('DataCtrl',function($scope,$http,$stateParams,$location,JSONDat
     $scope.ListAllTags=GetTags;
     $scope.ListAllProjectIDs=GetProjectIDs;
     $scope.ListAllMembers=GetMembers;
-    
+    $scope.test="Shashvat";
 
 
 
@@ -86,6 +86,25 @@ myapp.controller('DataCtrl',function($scope,$http,$stateParams,$location,JSONDat
     $scope.newTask = '';
     $scope.editedTaskName = null;
     $scope.editedProjectName=null;
+
+
+    $scope.getProjectID=function()
+    {
+        var currProject=$location.path();
+        currProject=currProject.substring(1);
+        console.log(currProject);
+        
+        var arr=[];
+        arr=currProject.split("/");
+        currProject=arr[0];
+        // delimit at '/'
+        if(currProject==='/' || currProject==='')
+            currProject=0;
+        console.log(currProject);
+        currProject=parseInt(currProject);
+        return currProject;
+    }
+
 
     var tasksLocal = $scope.JsonData=JSONData;
     $scope.addTask = function () 
@@ -523,6 +542,19 @@ myapp.config(function($stateProvider,$urlRouterProvider,$routeProvider)
       
     })
     
+    .state('inbox',
+    {
+        url:"/inbox",
+        views:
+        {
+            "ProjectPane":
+            {
+                templateUrl:"css/partials/inbox.html",
+                controller:"DataCtrl"
+            }
+        }
+    })
+
     .state('route1',
     {
         url:"/:PID",

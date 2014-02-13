@@ -108,7 +108,7 @@
 
 </style>
 
-<body id="BODYID" ng-controller="DataCtrl">
+<body id="BODYID" ng-controller="DataCtrl" style="overflow-y:hidden;">
 	
 
 		<!-- UpperNavBar -->
@@ -191,9 +191,9 @@
 					<!-- Inbox -->
 					<div id="nav1"class="mi" >
 						<div style="margin-top:5px;">
-							<a class="link" style="color:#747474"href="#">inbox</a>
+							<a class="link" style="color:#747474" ng-href="#/inbox">inbox</a>
 							<a class="link" href="#">
-								<img src="images/4.png" class="img_small">
+								<img src="images/4.png" class="img_small" ng-href="#/inbox">
 							</a>
 						</div>
 					</div>
@@ -303,13 +303,8 @@
 				<div style="height:40px;width:40px;background-color:#868686;float:left; ">
 				</div>
 				
-				<!-- username -->
 				<div style="color:#747474;height:44px;line-height:44px;float:left;padding-left:10px;">
-					Shashvat Tripathi's
-				</div>
-
-				<div style="color:#747474;height:44px;line-height:44px;float:left;padding-left:10px;">
-					Project1
+					Project {{getProjectID()}}
 				</div>
 
 				<div style="color:#747474;height:44px;line-height:44px;float:left;padding-left:10px;">

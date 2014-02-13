@@ -1,16 +1,16 @@
 <!-- New -->
 <!-- Dynamically injected -->
-<div ng-init="index=getIndexOf(routeTID)" style="height:400px;background-color:#EEEEEE;border-top:8px solid #f4f3f3;" >
+<div ng-init="index=getIndexOf(routeTID)" style="max-height:585px;background-color:#EEEEEE;border-top:8px solid #f4f3f3;overflow-y:auto;" >
 					
 	<!-- nav1 -->
 	<div class="century container" style="background-color:#ffffff;height:35px;border-bottom:1px solid #d1d1d1;border-top:1px solid #d1d1d1;width:488px">
 
 		<div  id="nav1" class="right-nav">
 			<div style="float:left;">
-				<a href="" >
-					<img ng-click="addAssignedTo(index)" class="teampic" style="height:19px; margin-left:10px;margin-top:7px" src="images/pic.png">
+				
+				<img ng-click="addAssignedTo(index)" class="teampic" style="height:19px; margin-left:10px;margin-top:7px" src="images/pic.png">
 
-				</a>
+				
 			</div>
 			<div  style="float:left;margin-top:5px;margin-left:14px;" ng-click="addAssignedTo(index)">
 				{{JsonData[index].assignedTo}}
@@ -27,9 +27,9 @@
 
 		<div  id="nav1" class="right-nav" ng-click="openDatePicker(JsonData[index])" style="cursor:pointer;">
 			<div style="float:left;">
-				<a href="#" >
-					<img class="teampic" style="height:19px; margin-left:10px;margin-top:7px" src="images/time.png" >
-				</a>
+				
+				<img class="teampic" style="height:19px; margin-left:10px;margin-top:7px" src="images/time.png" >
+				
 			</div>
 			<div style="float:left; margin-top: 5px; margin-left:14px">
 				due date
@@ -62,11 +62,6 @@
 	<!-- Task Details-1 -->
 	<div class="row century" style="background-color:#ffffff;height:180px;border-bottom:1px solid #d1d1d1;padding:4px;overflow:hidden;">
 		<p style="margin-left:40px;margin-top:10px;font-size:20px;color:#747474;margin-bottom:0px">Project {{JsonData[index].PID}}</p>
-
-		<!-- <p style="margin-left:50px;margin-top:4px;font-size:10px;color:#747474;margin-bottom:0px">
-			<strong>TaskID :</strong> {{routeTID}} <input type="checkbox" ng-model="JsonData[index].completed">
-		</p>
- -->
 
 		<div class="container"style="margin-left:50px;margin-top:5px;margin-bottom:0px;font-size:15px;color:#747474">
 			<div style="margin-bottom:0px;float:left">
@@ -114,15 +109,18 @@
 	</div>
 
 	<!-- Comments -->
-	<div class="row century" style="background-color:#E3E3E3;height:100px;border-bottom:1px solid #d1d1d1;border-top:0px solid #d1d1d1;padding:4px;overflow:hidden;color:#747474;">
+	<div class="row century" style="background-color:#E3E3E3;max-height:250px;border-bottom:1px solid #d1d1d1;border-top:0px solid #d1d1d1;padding:4px;color:#747474;overflow-y:auto;">
 		<div style="margin-left:20px">
 			<img style="width:20px"src="images/comment.png">
 
 			post a comment
 		</div>	
-		<form style="margin-left:20px;float:left;margin-top:10px">
-			<input class="century"style="background-color:#ffffff;border:1px solid #ffffff;font-size:12px;color:#77d28e;width:300px"type="text">
+		<form ng-submit="addComment(JsonData[index])" style="margin-left:20px;float:left;margin-top:10px">
+			<input class="century"style="background-color:#ffffff;border:1px solid #ffffff;font-size:12px;color:#77d28e;width:300px" type="text" ng-model="comment">
 		</form>
+		<br>
+		<br>
+		<p style="float:left;width:100%;" ng-repeat="comment in JsonData[index].Comments track by $index">{{comment}}</p>
 		
 	</div>
 
