@@ -480,10 +480,6 @@ myapp.controller('DataCtrl',function($scope,$http,$stateParams,$location,JSONDat
         //     <link rel=\"stylesheet\" type=\"text/css\" href=\"css/bootstrap-datepicker.css\">
         //     <link rel=\"stylesheet\" type=\"text/css\" href=\"css/styles.css\">');
 
-
-        window.frames["print_frame"].document.body.innerHTML=document.getElementById("BODYID").innerHTML;
-        window.frames["print_frame"].window.focus();
-        window.frames["print_frame"].window.print();
     }
 
 });
@@ -550,7 +546,7 @@ myapp.config(function($stateProvider,$urlRouterProvider,$routeProvider)
             "ProjectPane":
             {
                 templateUrl:"css/partials/inbox.html",
-                controller:"DataCtrl"
+                controller:"InboxCtrl"
             }
         }
     })

@@ -89,3 +89,48 @@ myapp.factory('GetProjectIDs',function(JSONData)
 });
 
 
+
+myapp.factory('SimulateEmails',function()
+{
+	var emails=[
+		{
+			"EID":1,
+			"from":"SaS",
+			"subject":"How are you doing?",
+			"date":"12/02/2014"
+		},
+		{
+			"EID":2,
+			"from":"ShM",
+			"subject":"Team Work for Taskr",
+			"date":"12/02/2014"
+		},
+		{
+			"EID":3,
+			"from":"DJ",
+			"subject":"Submission due for Operating Systems!",
+			"date":"12/02/2014"
+		},
+		{
+			"EID":4,
+			"from":"KK",
+			"subject":"Lecture by MS Soni.",
+			"date":"12/02/2014"
+		},
+		{
+			"EID":5,
+			"from":"SnS",
+			"subject":"subject1",
+			"date":"12/02/2014"
+		},
+		{
+			"EID":6,
+			"from":"AY",
+			"subject":"subject1",
+			"date":"12/02/2014"
+		}
+	]
+
+	return emails;
+	
+});

@@ -340,3 +340,44 @@ hr
     border: 0; border-top: 1px solid #77D28E;
     margin: 1em 0; padding: 0;
 }
+
+.comment
+{
+  border-bottom: 1px solid #d1d1d1;
+  margin-bottom: 0px;
+  padding-top: 3px;
+  border-right: 1px solid #d1d1d1;
+  padding-bottom: 3px;
+  background-color: #fff;
+  padding-left: 25px;
+  color:#77D28E;
+}
+
+.tag
+{
+  float:left;
+  background-color:#989898;
+  color:white;
+  padding-left:4px;
+  padding-right: 4px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-right:4px;
+  margin-top:2px;
+  margin-bottom: 2px;
+  border-radius: 3px;
+
+}
+
+.mail
+{
+  height:20px;
+  float:left;
+  margin-bottom: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 14px
+  
+
+
+}

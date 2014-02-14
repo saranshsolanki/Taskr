@@ -1,6 +1,6 @@
 <!-- New -->
 <!-- Dynamically injected -->
-<div ng-init="index=getIndexOf(routeTID)" style="max-height:585px;background-color:#EEEEEE;border-top:8px solid #f4f3f3;overflow-y:auto;" >
+<div id="IndiTasksDivID" ng-init="index=getIndexOf(routeTID)" style="max-height:585px;background-color:#EEEEEE;border-top:8px solid #f4f3f3;overflow-y:auto;" >
 					
 	<!-- nav1 -->
 	<div class="century container" style="background-color:#ffffff;height:35px;border-bottom:1px solid #d1d1d1;border-top:1px solid #d1d1d1;width:488px">
@@ -33,7 +33,7 @@
 			</div>
 			<div style="float:left; margin-top: 5px; margin-left:14px">
 				due date
-				<input data-date-format="dd-mm-yyyy" value="{{JsonData[index].DueDate}}" type="text" style="height:2px;width:2px;padding:0px;margin:-40px;" class="customDatePicker">
+				<input data-date-format="dd-mm-yyyy" value="{{JsonData[index].DueDate}}" type="text" style="height:2px;width:2px;padding:0px;margin:-40px;background-color:#e3e3e3;border:0px" class="customDatePicker">
 				 
 			</div>
 			
@@ -61,43 +61,38 @@
 
 	<!-- Task Details-1 -->
 	<div class="row century" style="background-color:#ffffff;height:180px;border-bottom:1px solid #d1d1d1;padding:4px;overflow:hidden;">
-		<p style="margin-left:40px;margin-top:10px;font-size:20px;color:#747474;margin-bottom:0px">Project {{JsonData[index].PID}}</p>
+		<p style="margin-left:20px;margin-top:10px;font-size:20px;color:#747474;margin-bottom:0px">Project {{JsonData[index].PID}}</p>
 
-		<div class="container"style="margin-left:50px;margin-top:5px;margin-bottom:0px;font-size:15px;color:#747474">
+		<div class="container"style="margin-left:40px;margin-top:5px;margin-bottom:0px;font-size:15px;color:#747474">
 			<div style="margin-bottom:0px;float:left">
-				<strong>Task :</strong>
+				<strong>Task Name</strong>
 			</div>
-			
-			<div style="margin-bottom:11px;float:left;margin-left:42px"> 
-				<span class="container"style="padding-top:5px;margin-bottom:3px"class=" century"ng-hide="JsonData[index].editing" ng-click="startEditing(JsonData[index])">{{JsonData[index].TN}}
-				</span>
-			</div>
-		
-			<form style="margin-left:0px;margin-top:0px;margin-bottom:5px; float:left;"ng-submit="doneEditing(JsonData[index])" ng-show="JsonData[index].editing">
-				<input ng-blur="doneEditing(JsonData[index])" ng-focus="JsonData[index]==editedTask" ng-model="JsonData[index].TN" class=" century input-large">
+
+			<form style="margin-left:10px;float:left">
+				<input class="century" style="font-size:12px;color:white;width:300px;background-color:#77D28E;border:1px solid #77D28E;" type="text" ng-model="JsonData[index].TN">
 			</form>
 		</div>
 
 		<div class="container century">
-			<div style="margin-left:50px;float:left;font-size:12px;color:#747474;margin-top:4px"><strong>Description :</strong>
+			<div style="margin-left:40px;float:left;font-size:15px;color:#747474;margin-top:4px"><strong>Description</strong>
 			</div>
-			<form style="margin-left:10px;float:left">
+			<form style="margin-left:8px;float:left">
 				<textarea class="century" style="font-size:12px;color:white;width:300px;background-color:#77D28E;border:1px solid #77D28E;" type="text" ng-model="JsonData[index].TD"></textarea>
 			</form>
 		</div>
 	</div>
 
 	<!-- Tags --> <!-- Give max-height  -->
-	<div class="row century" style="background-color:#E3E3E3;border-bottom:1px solid #d1d1d1;border-top:0px solid #d1d1d1;padding:4px;overflow:hidden;color:#747474;overflow:auto;">
+	<div class="row century" style="background-color:#E3E3E3;border-bottom:1px solid #d1d1d1;border-top:0px solid #d1d1d1;padding:4px;overflow:hidden;max-height:90px;color:#747474;overflow:auto;">
 		<!-- Tag logo -->
-		<div style="float:left;margin-right:10px;">Tags</div>
+		<div style="float:left;margin-right:10px;margin-top:2px"><strong>Tags</strong></div>
 		
 		<!-- Tags go Here -->
-		<div ng-click="removeTag(index,tag)" ng-repeat="tag in JsonData[index].tags track by $index" style="float:left;background-color:#A4A4A4;color:white;margin-right:4px;">{{tag}}</div>
+		<div class="tag"ng-click="removeTag(index,tag)" ng-repeat="tag in JsonData[index].tags track by $index" style="">{{tag}}</div>
 
 		<!-- input for new tag -->
-		<form ng-submit="addTag(JsonData[index])" ng-show="AdddingANewTag" style="float:left;">
-			<input ng-model="newTag" class="" style="" placeholder="New Tag">
+		<form ng-submit="addTag(JsonData[index])" ng-show="AdddingANewTag" style="float:left;margin-bottom:0px">
+			<input ng-model="newTag" class="century" style="color:#989898" placeholder="New Tag">
 		</form>
 		
 		<!-- Add a tag -->
@@ -109,18 +104,20 @@
 	</div>
 
 	<!-- Comments -->
-	<div class="row century" style="background-color:#E3E3E3;max-height:250px;border-bottom:1px solid #d1d1d1;border-top:0px solid #d1d1d1;padding:4px;color:#747474;overflow-y:auto;">
-		<div style="margin-left:20px">
-			<img style="width:20px"src="images/comment.png">
+	<div class="row century" style="background-color:#E3E3E3;max-height:150px;border-bottom:1px solid #d1d1d1;border-top:0px solid #d1d1d1;padding:4px;color:#747474;overflow-y:auto;">
+			<div style="margin-left:20px">
+				<img style="width:20px"src="images/comment.png">
 
-			post a comment
-		</div>	
-		<form ng-submit="addComment(JsonData[index])" style="margin-left:20px;float:left;margin-top:10px">
-			<input class="century"style="background-color:#ffffff;border:1px solid #ffffff;font-size:12px;color:#77d28e;width:300px" type="text" ng-model="comment">
-		</form>
-		<br>
-		<br>
-		<p style="float:left;width:100%;" ng-repeat="comment in JsonData[index].Comments track by $index">{{comment}}</p>
+				post a comment
+			</div>	
+			<form ng-submit="addComment(JsonData[index])" style="margin-left:20px;float:left;margin-top:10px;margin-bottom:0px">
+				<input class="century"style="background-color:#ffffff;border:1px solid #ffffff;font-size:12px;color:#77d28e;width:400px" type="text" ng-model="comment">
+			</form>
+	</div>
+
+	<div class="row century" style="background-color:#E3E3E3;max-height:150px;border-bottom:1px solid #d1d1d1;border-top:0px solid #d1d1d1;color:#747474;overflow-y:auto;overflow-x:hidden">
+		<p class="comment"style="float:left;width:100%;" ng-repeat="comment in JsonData[index].Comments track by $index"> <i><strong>username   </strong></i>says   <i><strong>"{{comment}}"</strong></i></p>
+		
 		
 	</div>
 

@@ -20,6 +20,8 @@
 	<!-- <link rel="stylesheet" type="text/css" href="css/animations.css"> -->
 </head>
 
+
+
 <style>
 
 
@@ -93,7 +95,7 @@
 	{
 		margin:0px;
 		overflow-y:hidden;
-
+		overflow-x:hidden; 
 	}
 
 	.span1,.span2,.span3,.span4,.span5,.span6,.span7,.span8
@@ -108,10 +110,16 @@
 
 </style>
 
-<body id="BODYID" ng-controller="DataCtrl" style="overflow-y:hidden;">
+<body id="BODYID" ng-controller="DataCtrl" style="overflow-y:hidden;display:none;">
 	
+	<script>
+	$(document).ready(function()
+	{
+		$('#BODYID').fadeIn("slow");
+	});
+	</script>
 
-		<!-- UpperNavBar -->
+	<!-- UpperNavBar -->
 	<div class="container-fluid century" style="width:1366px;height:40px;margin:0px;background-color:#259541;padding:0px;">
 		
 	
@@ -122,9 +130,9 @@
 		    	</a>
 
 		    	<div class="nav century" style="margin-top:5px;margin-right:0px;">
-		    		<form class="form-search" ng-submit="SearchAllProjects()">
+		    		<form class="form-search searchquery" ng-submit="SearchAllProjects()">
 
-  						<input id="IDsearchString" type="text" placeholder="search" placeholder-color="#ffffff" style="border:0px;font-size:16px;color:#ffffff;" class=" century input-medium " ng-model="SearchString">
+  						<input id="IDsearchString" type="text" placeholder="search" placeholder-color="#ffffff" style="border:0px;font-size:16px;color:#ffffff;" class=" century input-medium text" ng-model="SearchString">
   					</form>
 		    	</div>
 
@@ -153,7 +161,7 @@
 				<div style="height:40px;width:100%;">
 					<div id="ProjectName" >
 						<a class="link" href="">
-							<p class="projectmain">Project 1 <span ng-model="selectedProject"></span></p>
+							<p class="projectmain">Project {{GetProjectID()}}</p>
 						</a>
 					</div>
 					
@@ -295,7 +303,7 @@
 		</div>
 
 		<!-- Center Pane -->
-		<div class="century" style="width:586px;margin-left:290px;top:40px;height:600px;margin-right:0px;background-color:#eeeeee;border-right:1px solid #d1d1d1">
+		<div class="century" style="width:586px;margin-left:290px;top:40px;height:600px;margin-right:0px;background-color:#eeeeee;border-right:1px solid #d1d1d1;">
 			<!-- username -->
 			<div class="row century" style="background-color:#ffffff;margin:0px;height:44px;border-bottom:1px solid #d1d1d1;padding:6px;padding-left:22px;overflow:hidden;font-size:22px;">
 				
@@ -454,9 +462,10 @@
 	</div>
 
 	
-	<iframe name="print_frame" width:0 height:0 frameborder=0 src=about:blank></iframe>
+	
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/App/myApp.js"></script>
+	<script type="text/javascript" src="js/App/InboxCtrl.js"></script>
 	<script type="text/javascript" src="js/App/services/eventData.js"></script>
 
 </body>
